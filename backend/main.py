@@ -9,7 +9,7 @@ app = FastAPI(title="Digit Classifier API")
 # Update ONLY this part:
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://adityavishwakarma0908.github.io"], # Changed from "*"
+    allow_origins=["https://adityavishwakarma0908.github.io", "https://adityavishwakarma0908.github.io/"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
