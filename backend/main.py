@@ -6,22 +6,21 @@ from typing import List
 
 app = FastAPI(title="Digit Classifier API")
 
+# Update ONLY this part:
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://adityavishwakarma0908.github.io"], # Changed from "*"
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Changed from a string to a List of integers!
+# Keep these exactly as they were!
 class ImageData(BaseModel):
     pixels: List[int]
 
 @app.post("/predict")
 async def predict_digit(data: ImageData):
-    try:
-        prediction = process_and_predict(data.pixels)
-        return {"success": True, "prediction": prediction}
-    except Exception as e:
-        return {"success": False, "error": str(e)}
+    # Keep your logic here so the model actually runs!
+    prediction = process_and_predict(data.pixels)
+    return {"prediction": prediction}
